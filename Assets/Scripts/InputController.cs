@@ -22,11 +22,19 @@ public class InputController : MonoBehaviour
         _resurrectMiniGame = resurrectMiniGame;
         inputActions = new InputSystem_Actions();
         _player = player;
+        PlayerInput();
+        inputActions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Disable();
     }
 
     private void PlayerInput()
     {
-        inputActions.Player.Move.started += PlayerStart;
+        inputActions.Player.Move.performed += PlayerStart;
+        inputActions.Player.Move.canceled += PlayerStart;
     }
 
     private void PlayerStart(InputAction.CallbackContext context)
