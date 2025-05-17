@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,15 +9,29 @@ public class InputController : MonoBehaviour
     private RaycastHit2D[] hits;
 
     private ResurrectMiniGame _resurrectMiniGame;
+    private Player _player;
+    private InputSystem_Actions inputActions;
 
     private void Update()
     {
         CheckInput();
     }
 
-    public void Init(ResurrectMiniGame resurrectMiniGame)
+    public void Init(ResurrectMiniGame resurrectMiniGame, Player player)
     {
         _resurrectMiniGame = resurrectMiniGame;
+        inputActions = new InputSystem_Actions();
+        _player = player;
+    }
+
+    private void PlayerInput()
+    {
+        inputActions.Player.Move.started += PlayerStart;
+    }
+
+    private void PlayerStart(InputAction.CallbackContext context)
+    {
+        _player.direction = context.ReadValue<Vector2>();
     }
 
     private void CheckInput()
@@ -30,6 +45,8 @@ public class InputController : MonoBehaviour
         CheckForClickDownLogic();
 
         CheckForClickUpLogic();
+
+        
     }
 
     private void CheckForClickDownLogic()

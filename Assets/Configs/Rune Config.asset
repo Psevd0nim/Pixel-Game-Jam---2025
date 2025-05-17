@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbed0e1289a62f745825e8ed8f5c36c4, type: 3}
+  m_Name: Rune Config
+  m_EditorClassIdentifier: 
+  runeDataList:
+  - sprite: {fileID: 3596586548976184995, guid: 695d6c0bd56e75b47aab2705be5a23b5, type: 3}
+    type: 0
+  - sprite: {fileID: 3084513046271060417, guid: 695d6c0bd56e75b47aab2705be5a23b5, type: 3}
+    type: 1
+  - sprite: {fileID: 3995438529588595053, guid: 695d6c0bd56e75b47aab2705be5a23b5, type: 3}
+    type: 2
+  - sprite: {fileID: 7824522364294658351, guid: 695d6c0bd56e75b47aab2705be5a23b5, type: 3}
+    type: 3
+  - sprite: {fileID: 6263198722025214029, guid: 695d6c0bd56e75b47aab2705be5a23b5, type: 3}
+    type: 4
+  - sprite: {fileID: 7644559874791536008, guid: 695d6c0bd56e75b47aab2705be5a23b5, type: 3}
+    type: 5
+  - sprite: {fileID: -2956116015236141560, guid: 695d6c0bd56e75b47aab2705be5a23b5, type: 3}
+    type: 6
+  - sprite: {fileID: 1438081474161358389, guid: 695d6c0bd56e75b47aab2705be5a23b5, type: 3}
+    type: 7
+  - sprite: {fileID: 3556227483095668225, guid: 695d6c0bd56e75b47aab2705be5a23b5, type: 3}
+    type: 8

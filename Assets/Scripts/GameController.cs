@@ -4,6 +4,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private InputController _inputController;
     [SerializeField] private ResurrectMiniGame _resurrectMiniGame;
+    [SerializeField] private Player _player;
 
     private void Awake()
     {
@@ -12,6 +13,6 @@ public class GameController : MonoBehaviour
 
     private void StartInits()
     {
-        _inputController.Init(_resurrectMiniGame);
+        _inputController.Init(_resurrectMiniGame, _player);
     }
 }
