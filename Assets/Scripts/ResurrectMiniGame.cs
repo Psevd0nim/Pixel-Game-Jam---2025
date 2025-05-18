@@ -1,24 +1,33 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ResurrectMiniGame : MonoBehaviour
 {
+    [ReadOnly]
     public List<Rune> runes;
     public LineRenderer lineRenderer;
+
+    public bool canSetActive;
+
+    [SerializeField] private ResMiniGameUI _resMiniGameUI;
 
     private Rune _currentActiveRune;
     private bool _moveRuneActive;
 
-    private void Start()
+    public void SetActive()
     {
-        lineRenderer.positionCount = runes.Count + 1;
+        transform.position = (Vector2)Camera.main.transform.position;
+        gameObject.SetActive(true);
+        _resMiniGameUI.gameObject.SetActive(true);
+        canSetActive = false;
     }
 
     private void Update()
     {
-        SetPosesForRunes();
-
+        if(runes.Count > 0)
+            SetPosesForRunes();
         if(_moveRuneActive)
             MoveRune();
     }

@@ -22,22 +22,29 @@ public class InputController : MonoBehaviour
         _resurrectMiniGame = resurrectMiniGame;
         inputActions = new InputSystem_Actions();
         _player = player;
-        PlayerInput();
+        PlayerSetInput();
         inputActions.Enable();
     }
 
     private void OnDisable()
     {
         inputActions.Disable();
+        PlayerClearInput();
     }
 
-    private void PlayerInput()
+    public void PlayerSetInput()
     {
-        inputActions.Player.Move.performed += PlayerStart;
-        inputActions.Player.Move.canceled += PlayerStart;
+        inputActions.Player.Move.performed += PlayerInput;
+        inputActions.Player.Move.canceled += PlayerInput;
     }
 
-    private void PlayerStart(InputAction.CallbackContext context)
+    private void PlayerClearInput()
+    {
+        inputActions.Player.Move.performed -= PlayerInput;
+        inputActions.Player.Move.canceled -= PlayerInput;
+    }
+
+    private void PlayerInput(InputAction.CallbackContext context)
     {
         _player.direction = context.ReadValue<Vector2>();
     }
@@ -54,7 +61,21 @@ public class InputController : MonoBehaviour
 
         CheckForClickUpLogic();
 
-        
+        CheckForKeaybordInput();
+    }
+
+    private void CheckForKeaybordInput()
+    {
+        if(Keyboard.current == null) return;
+
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            if (_resurrectMiniGame.canSetActive)
+            {
+                _resurrectMiniGame.SetActive();
+                PlayerClearInput();
+            }
+        }
     }
 
     private void CheckForClickDownLogic()

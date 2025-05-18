@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: -6416645517455541249, guid: d58c2dc0bad41464eb89782f1aa3816b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 3085659595447867606}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   _rb: {fileID: 5095353599210510641}
   _playerAnimator: {fileID: 5976562027997343876}
   _sprite: {fileID: 2052511566202169518}
-  _speed: 10
+  _speed: 20
 --- !u!50 &5095353599210510641
 Rigidbody2D:
   serializedVersion: 5
