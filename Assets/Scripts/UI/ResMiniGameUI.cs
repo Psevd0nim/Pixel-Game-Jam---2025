@@ -7,6 +7,6 @@ public class ResMiniGameUI : MonoBehaviour
 
     private void Start()
     {
-        _runesBag.FillRunesBag();
+        _runesBag.FillRunesBagUI();
     }
 }

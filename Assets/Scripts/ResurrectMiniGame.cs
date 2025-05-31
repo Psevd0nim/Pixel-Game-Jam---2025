@@ -5,13 +5,12 @@ using UnityEngine.InputSystem;
 
 public class ResurrectMiniGame : MonoBehaviour
 {
-    [ReadOnly]
-    public List<Rune> runes;
     public LineRenderer lineRenderer;
 
     public bool canSetActive;
 
     [SerializeField] private ResMiniGameUI _resMiniGameUI;
+    [SerializeField] private RunesBag _runesBag;
 
     private Rune _currentActiveRune;
     private bool _moveRuneActive;
@@ -26,7 +25,7 @@ public class ResurrectMiniGame : MonoBehaviour
 
     private void Update()
     {
-        if(runes.Count > 0)
+        if(_runesBag.runesForLine.Count > 0)
             SetPosesForRunes();
         if(_moveRuneActive)
             MoveRune();
@@ -51,10 +50,10 @@ public class ResurrectMiniGame : MonoBehaviour
 
     private void SetPosesForRunes()
     {
-        for (int i = 0; i < runes.Count; i++)
+        for (int i = 0; i < _runesBag.runesForLine.Count; i++)
         {
-            lineRenderer.SetPosition(i, runes[i].transform.position);
+            lineRenderer.SetPosition(i, _runesBag.runesForLine[i].transform.position);
         }
-        lineRenderer.SetPosition(runes.Count, runes[0].transform.position);
+        lineRenderer.SetPosition(_runesBag.runesForLine.Count, _runesBag.runesForLine[0].transform.position);
     }
 }
